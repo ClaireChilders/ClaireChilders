@@ -1,0 +1,53 @@
+name: Metrics
+on:
+  # Schedule daily updates
+  schedule: [{cron: "0 0 * * *"}]
+  # (optional) Run workflow manually
+  workflow_dispatch:
+  # (optional) Run workflow when pushing on main
+  push: {branches: ["main"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Generate Basic Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.basic.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          output_action: commit
+          committer_branch: main
+          committer_message: "chore: update metrics.basic.svg"
+          base: activity
+      - name: Generate Language Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          output_action: commit
+          committer_branch: main
+          committer_message: "chore: update metrics.languages.svg"
+          base: 
+          plugin_languages: yes
+          plugin_languages_other: yes
+          plugin_languages_indepth: true
+          plugin_languages_skipped: ${{ vars.SKIP_REPO }}
+          plugin_languages_details: percentage, lines
+      - name: Generate Followup Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.followup.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          output_action: commit
+          committer_branch: main
+          committer_message: "chore: update metrics.followup.svg"
+          base: 
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+      - name: Push new metrics images to main
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main

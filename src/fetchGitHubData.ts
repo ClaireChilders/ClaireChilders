@@ -11,7 +11,7 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
         if (!response.ok) {
           throw new Error(`"${repo}/releases" not found. Review your list of repositories.`);
         }
-        const releases_data = await response.json();
+        const releases_data = await releases_response.json();
   
         const {
           html_url: url,

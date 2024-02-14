@@ -14,6 +14,6 @@ export const config = {
         "ClaireChilders/CSI4480-Encryption-Project"
     ],
     "learningMaterialRepos": [
-        "https://gist.github.com/ClaireChilders/6acb0817ac59b99f7ee47eaa4e2c3076"
+        
     ],
 }

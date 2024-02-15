@@ -49,7 +49,7 @@ async function generateMarkdown() {
         + `<div align="center">\n`
         + `${profileCountBadge}\n\n`
         + `---\n\n`
-        + `Hello! I'm a beginner software developer currently learning everything I can. I'm always working on a few projects at a time and always trying to learn something new and improve my skills. I love learning, take a very positive approach to development, and believe every creation has value. Always work to create meaningful projects 💖\n\n`
+        + `Highly detail-oriented individual with a passion for data science and computational intelligence. Excels at designing creative and impactful solutions to complex challenges. Inspired by curiosity and passion for lifelong learning to continuously expand knowledge in the field of computer science.\n\n`
         + `---\n\n`
         + `${metricsBasic} ${metricsFollowup} ${metricsLanguages}\n`
         + `</div>\n\n`

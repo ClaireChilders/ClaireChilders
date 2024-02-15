@@ -22,7 +22,7 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
           open_issues_count: issues,
         } = data;
 
-        let summary = `<li><a href=${url} target="_blank" rel="noopener noreferrer">${name}</a> (📄 Language: <b>${lang}</b> | 🗃️ Issues: <b>${issues}</b> | 📅 Last updated: <b>${last_updated}</b>): ${desc}</li>`;
+        let summary = `<li><a href=${url} target="_blank" rel="noopener noreferrer">${name}</a> (📄 Language: <b>${lang}</b> | 🗃️ Issues: <b>${issues}</b> | 📅 Last updated: <b>${last_updated}</b>)${desc === null ? "" : ": " + desc}</li>`;
 
         if (releases_data.length === 0) {
           return summary;

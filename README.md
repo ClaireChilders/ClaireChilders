@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://komarev.com/ghpvc/?username=ClaireChilders&style=for-the-badge" alt="Profile Views Count Badge">
 <hr>
-<p>Hello! I’m a beginner software developer currently learning everything I can. I’m always working on a few projects at a time and always trying to learn something new and improve my skills. I love learning, take a very positive approach to development, and believe every creation has value. Always work to create meaningful projects 💖</p>
+<p>Highly detail-oriented individual with a passion for data science and computational intelligence. Excels at designing creative and impactful solutions to complex challenges. Inspired by curiosity and passion for lifelong learning to continuously expand knowledge in the field of computer science.</p>
 <hr>
 <p><img src="metrics.basic.svg" alt="Basic profile metrics"/> <img src="metrics.followup.svg" alt="Followup profile metrics"/> <img src="metrics.languages.svg" alt="Languages profile metrics"/></p>
 </div>

@@ -109,12 +109,10 @@ async function generateMarkdown() {
     </details>
 
     <br />
-
-    [![Rebuild README.md file](https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml/badge.svg)](https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml)
     `;
 
-
-    const aboutMarkdown = turndownSurvice.turndown(aboutHtml);
+    const workflowStatus = `[![Rebuild README.md file](https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml/badge.svg)](https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml)`;
+    const aboutMarkdown = turndownSurvice.turndown(aboutHtml) + workflowStatus;
 
     fs.writeFile('README.md', aboutMarkdown, (error: any) => {
         if (error) throw new Error(`There was an error writing to the README.md file: ${error}`);

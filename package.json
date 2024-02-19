@@ -1,29 +1,33 @@
 {
-    "dependencies": {
-      "fs": "^0.0.1-security",
-      "markdown-it": "^14.0.0",
-      "tsc-watch": "^6.0.4"
-    },
-    "name": "clairechilders",
-    "version": "1.0.0",
-    "description": "Automated README generation for ClaireChilders' GitHub profile",
-    "main": "src/app.ts",
-    "scripts": {
-      "build": "npx tsc",
-      "build:watch": "npx tsc-watch",
-      "start": "npm run build && node build/app.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "ClaireChilders",
-    "license": "MIT",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/ClaireChilders/ClaireChilders.git"
-    },
-    "homepage": "https://github.com/ClaireChilders/ClaireChilders#readme",
-    "devDependencies": {
-      "@types/markdown-it": "^13.0.7",
-      "@types/node": "^20.10.5"
-    }
-  }
-  
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "html-to-markdown": "^1.0.0",
+    "markdown-it": "^14.0.0",
+    "tsc-watch": "^6.0.4"
+  },
+  "name": "clairechilders",
+  "version": "1.0.0",
+  "description": "Automated README generation for ClaireChilders' GitHub profile",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "build:watch": "npx tsc-watch",
+    "start": "npm run build && node build/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ClaireChilders",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaireChilders/ClaireChilders.git"
+  },
+  "homepage": "https://github.com/ClaireChilders/ClaireChilders#readme",
+  "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
+    "@types/node": "^20.10.5"
+  },
+  "bugs": {
+    "url": "https://github.com/ClaireChilders/ClaireChilders/issues"
+  },
+  "keywords": []
+}

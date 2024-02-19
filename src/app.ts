@@ -7,7 +7,35 @@ const md = markdownit({
     typographer: true
 });
 import { fetchGitHubData } from "./fetchGitHubData";
+import { fetchGistData } from './fetchGistData'
 import { config } from "./config"
+
+async function getLearningMaterialDisplay() {
+    let learningMaterialDisplay = `
+    <details>
+        <summary>Learning Materials</summary>
+        <br />
+        Here are some of the learning resources I've created:
+        <br />
+        <br />
+    `;
+
+    if (config.learningMaterialRepos.length > 0) {
+        learningMaterialDisplay += `${await fetchGitHubData(config.learningMaterialRepos)}\n`;
+    }
+
+    if (config.learningMaterialGists.length > 0) {
+        learningMaterialDisplay += `${await fetchGistData(config.learningMaterialGists)}\n`;
+    }
+
+    if (config.learningMaterialRepos.length === 0 && config.learningMaterialGists.length === 0) {
+        learningMaterialDisplay = '';
+    } else {
+        learningMaterialDisplay += `</details>\n`;
+    }
+
+    return learningMaterialDisplay;
+}
 
 async function getDevelopmentProjectDisplay() {
     return config.developmentProjectRepos.length === 0 
@@ -45,18 +73,9 @@ async function generateMarkdown() {
     const metricsFollowup = `<img src="metrics.followup.svg" alt="Followup profile metrics"/>`;
     const metricsLanguages = `<img src="metrics.languages.svg" alt="Languages profile metrics"/>`;
 
-    const learningMaterialDisplay = config.learningMaterialRepos.length === 0 ? `` : ``
-        + `<details>\n`
-        + `<summary>Learning Materials</summary>\n`
-        + `<br />`
-        + `Here are some of the learning resources I've created:\n`
-        + `<br />\n<br />`
-        + `${await fetchGitHubData(config.learningMaterialRepos)}\n`
-        + `</details>\n`;
-    
-
     const developmentProjectDisplay = await getDevelopmentProjectDisplay();
     const releasedProjectDisplay = await getReleasedProjectDisplay();
+    const learningMaterialDisplay = await getLearningMaterialDisplay();
 
     const aboutText = `
     <div align="center">

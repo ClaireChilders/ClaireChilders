@@ -84,16 +84,16 @@ async function generateMarkdown() {
     <div align="center">
         ${profileCountBadge}
 
-        ---
+        \n---\n
 
         Highly detail-oriented individual with a passion for data science and computational intelligence. Excels at designing creative and impactful solutions to complex challenges. Inspired by curiosity and passion for lifelong learning to continuously expand knowledge in the field of computer science.
 
-        ---
+        \n---\n
 
         ${metricsBasic} ${metricsFollowup} ${metricsLanguages}
     </div>
 
-    ---
+    \n---\n
 
     ## Highlights
 
@@ -104,10 +104,10 @@ async function generateMarkdown() {
         <summary>Extra Info</summary>
 
         - ⭐️ Pronouns: She/Her
-        - 💬 How to reach me: Feel free to send me an email at [clairechilders@oakland.edu](mailto:clairechilders@oakland.edu)
+        - 💬 How to reach me: Feel free to send me an email at <a href="mailto:clairechilders@oakland.edu">clairechilders@oakland.edu</a>
     </details>
 
-    ---
+    \n---\n
 
     <a href="https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml">
         <img src="https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml/badge.svg" align="right" alt="Rebuild README.md file">

@@ -110,7 +110,7 @@ async function generateMarkdown() {
 
     <br />
 
-    <a href="https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml"><img src="https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml/badge.svg" align="right" alt="Rebuild README.md file"></a>
+    [![Rebuild README.md file](https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml/badge.svg)](https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml)
     `;
 
 

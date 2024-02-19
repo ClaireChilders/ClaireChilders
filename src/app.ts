@@ -112,8 +112,8 @@ async function generateMarkdown() {
     </a>
     `;
 
-    const aboutText = convert(aboutHtml);
-    const aboutMarkdown = md.render(aboutText);
+    const aboutMarkdown = convert(aboutHtml);
+    // const aboutMarkdown = md.render(aboutText);
 
     fs.writeFile('README.md', aboutMarkdown, (error: any) => {
         if (error) throw new Error(`There was an error writing to the README.md file: ${error}`);

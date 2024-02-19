@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import markdownit from 'markdown-it';
 import TurndownService from 'turndown';
 const turndownSurvice = new TurndownService();
+turndownSurvice.keep(['details', 'summary', 'div']);
 const md = markdownit({
     html: true,
     breaks: true,

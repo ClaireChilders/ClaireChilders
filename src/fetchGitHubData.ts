@@ -22,8 +22,13 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
           open_issues_count: issues,
         } = data;
 
-        let summary = `<li><a href=${url} target="_blank" rel="noopener noreferrer">${name}</a> (📄 Language: <b>${lang}</b> | 🗃️ Issues: <b>${issues}</b> | 📅 Last updated: <b>${last_updated}</b>)${desc === null ? "" : ": " + desc}</li>`;
-
+        let summary = `
+          <li>
+              <a href=${url} target="_blank" rel="noopener noreferrer">${name}</a> 
+              (📄 Language: <b>${lang}</b> | 🗃️ Issues: <b>${issues}</b> | 📅 Last updated: <b>${last_updated}</b>)
+              ${desc === null ? "" : ": " + desc}
+          </li>
+        `;
         if (releases_data.length === 0) {
           return summary;
         }
@@ -49,8 +54,16 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
           name: releases_name,
           published_at: releases_published
         } = release;
-
-        summary += `<ul><li>🏷️ Current Release${is_pre_release ? ' (pre-release)' : ''}: <a href=${releases_url} target="_blank" rel="noopener noreferrer">${releases_name}</a> (Published: <b>${releases_published}</b>)</li></ul>`;
+        
+        summary += `
+          <ul>
+              <li>
+                  🏷️ Current Release${is_pre_release ? ' (pre-release)' : ''}: 
+                  <a href=${releases_url} target="_blank" rel="noopener noreferrer">${releases_name}</a> 
+                  (Published: <b>${releases_published}</b>)
+              </li>
+          </ul>
+        `;
   
         return summary;
       })

@@ -33,9 +33,17 @@ export async function fetchGistData(gists: Array<string>): Promise<string> {
             let lang = Object.keys(language_frequency).reduce((a, b) => language_frequency[a] > language_frequency[b] ? a : b);
 
             
-
-            let summary = `<li><a href=${url} target="_blank" rel="noopener noreferrer">${name}</a>: ${description}</li>`;
-            summary += `<ul><li>📄 Language: <b>${lang}</b></li><li>🎨 Created: <b>${created_at}</b></li><li>📅 Last updated: <b>${last_updated}</b></li><li>📏 Size: <b>${size} characters</b></li></ul>`;
+            const summary = `
+                <li>
+                    <a href=${url} target="_blank" rel="noopener noreferrer">${name}</a>: ${description}
+                    <ul>
+                        <li>📄 Language: <b>${lang}</b></li>
+                        <li>🎨 Created: <b>${created_at}</b></li>
+                        <li>📅 Last updated: <b>${last_updated}</b></li>
+                        <li>📏 Size: <b>${size} characters</b></li>
+                    </ul>
+                </li>
+            `;
     
             return summary;
         })

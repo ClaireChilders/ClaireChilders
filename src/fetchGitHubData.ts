@@ -56,13 +56,13 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
         } = release;
         
         summary += `
-          <ul>
-              <li>
-                  🏷️ Current Release${is_pre_release ? ' (pre-release)' : ''}: 
-                  <a href=${releases_url} target="_blank" rel="noopener noreferrer">${releases_name}</a> 
-                  (Published: <b>${releases_published}</b>)
-              </li>
-          </ul>
+        <ul>
+            <li>
+                🏷️ Current Release${is_pre_release ? ' (pre-release)' : ''}: 
+                <a href=${releases_url} target="_blank" rel="noopener noreferrer">${releases_name}</a> 
+                (Published: <b>${releases_published}</b>)
+            </li>
+        </ul>
         `;
   
         return summary;

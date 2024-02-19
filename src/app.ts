@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import markdownit from 'markdown-it';
+import { convert } from 'html-to-markdown';
 const md = markdownit({
     html: true,
     breaks: true,
@@ -77,7 +78,7 @@ async function generateMarkdown() {
     const releasedProjectDisplay = await getReleasedProjectDisplay();
     const learningMaterialDisplay = await getLearningMaterialDisplay();
 
-    const aboutText = `
+    const aboutHtml = `
     <div align="center">
         ${profileCountBadge}
 
@@ -111,6 +112,7 @@ async function generateMarkdown() {
     </a>
     `;
 
+    const aboutText = convert(aboutHtml);
     const aboutMarkdown = md.render(aboutText);
 
     fs.writeFile('README.md', aboutMarkdown, (error: any) => {

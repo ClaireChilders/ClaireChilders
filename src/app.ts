@@ -1,5 +1,8 @@
 import * as fs from 'fs';
 import markdownit from 'markdown-it';
+import TurndownService from 'turndown';
+const turndownSurvice = new TurndownService();
+turndownSurvice.keep(['details', 'summary', 'div']);
 const md = markdownit({
     html: true,
     breaks: true,
@@ -77,41 +80,43 @@ async function generateMarkdown() {
     const releasedProjectDisplay = await getReleasedProjectDisplay();
     const learningMaterialDisplay = await getLearningMaterialDisplay();
 
-    const aboutText = `
+    const aboutHtml = `
     <div align="center">
         ${profileCountBadge}
 
-        ---
+        <br /><br />
 
         Highly detail-oriented individual with a passion for data science and computational intelligence. Excels at designing creative and impactful solutions to complex challenges. Inspired by curiosity and passion for lifelong learning to continuously expand knowledge in the field of computer science.
 
-        ---
+        <br /><br />
 
         ${metricsBasic} ${metricsFollowup} ${metricsLanguages}
     </div>
 
-    ---
+    <br />
 
-    ## Highlights
+    <h2>Highlights</h2>
 
     ${developmentProjectDisplay}
     ${releasedProjectDisplay}
     ${learningMaterialDisplay}
     <details>
         <summary>Extra Info</summary>
-
-        - ⭐️ Pronouns: She/Her
-        - 💬 How to reach me: Feel free to send me an email at [clairechilders@oakland.edu](mailto:clairechilders@oakland.edu)
+        <ul>
+            <li>⭐️ Pronouns: She/Her</li>
+            <li>💬 How to reach me: Feel free to send me an email at <a href="mailto:clairechilders@oakland.edu">clairechilders@oakland.edu</a></li>
+        </ul>
     </details>
 
-    ---
+    <br />
 
     <a href="https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml">
         <img src="https://github.com/${config.githubUsername}/${config.githubUsername}/actions/workflows/build.yml/badge.svg" align="right" alt="Rebuild README.md file" />
     </a>
     `;
 
-    const aboutMarkdown = md.render(aboutText);
+
+    const aboutMarkdown = turndownSurvice.turndown(aboutHtml);
 
     fs.writeFile('README.md', aboutMarkdown, (error: any) => {
         if (error) throw new Error(`There was an error writing to the README.md file: ${error}`);

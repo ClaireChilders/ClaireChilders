@@ -1,6 +1,5 @@
 export const config = {
     "githubUsername": "ClaireChilders",
-    "discordUsername": "ClaireChilders",
     "badgeColor": "D1A3FF",
     "textColor": "black",
     "developmentProjectRepos": [
@@ -16,4 +15,7 @@ export const config = {
     "learningMaterialRepos": [
         
     ],
+    "learningMaterialGists": [
+        "6acb0817ac59b99f7ee47eaa4e2c3076"
+    ]
 }

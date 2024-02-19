@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import markdownit from 'markdown-it';
-import { convert } from 'html-to-markdown';
+import TurndownService from 'turndown';
+const turndownSurvice = new TurndownService();
 const md = markdownit({
     html: true,
     breaks: true,
@@ -112,8 +113,7 @@ async function generateMarkdown() {
     </a>
     `;
 
-    const aboutMarkdown = convert(aboutHtml);
-    // const aboutMarkdown = md.render(aboutText);
+    const aboutMarkdown = turndownSurvice.turndown(aboutHtml);
 
     fs.writeFile('README.md', aboutMarkdown, (error: any) => {
         if (error) throw new Error(`There was an error writing to the README.md file: ${error}`);

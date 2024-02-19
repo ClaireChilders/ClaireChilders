@@ -3,7 +3,8 @@
     "fs": "^0.0.1-security",
     "html-to-markdown": "^1.0.0",
     "markdown-it": "^14.0.0",
-    "tsc-watch": "^6.0.4"
+    "tsc-watch": "^6.0.4",
+    "turndown": "^7.1.2"
   },
   "name": "clairechilders",
   "version": "1.0.0",
@@ -24,7 +25,8 @@
   "homepage": "https://github.com/ClaireChilders/ClaireChilders#readme",
   "devDependencies": {
     "@types/markdown-it": "^13.0.7",
-    "@types/node": "^20.10.5"
+    "@types/node": "^20.10.5",
+    "@types/turndown": "^5.0.4"
   },
   "bugs": {
     "url": "https://github.com/ClaireChilders/ClaireChilders/issues"

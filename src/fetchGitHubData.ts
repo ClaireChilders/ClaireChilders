@@ -42,7 +42,6 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
               </li>
               ${release_summary}
             </ul>
-            ${desc === null ? "" : ": " + desc}
         </li>
       `;
 

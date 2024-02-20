@@ -1,11 +1,11 @@
 name: Metrics
 on:
   # Schedule daily updates
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: [{ cron: "0 0 * * *" }]
   # (optional) Run workflow manually
   workflow_dispatch:
   # (optional) Run workflow when pushing on main
-  push: {branches: ["main"]}
+  push: { branches: ["main"] }
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
       - name: Generate Basic Metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.basic.svg
+          filename: content/metrics.basic.svg
           token: ${{ secrets.METRICS_TOKEN }}
           output_action: commit
           committer_branch: main
@@ -24,12 +24,12 @@ jobs:
       - name: Generate Language Metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.languages.svg
+          filename: content/metrics.languages.svg
           token: ${{ secrets.METRICS_TOKEN }}
           output_action: commit
           committer_branch: main
           committer_message: "chore: update metrics.languages.svg"
-          base: 
+          base:
           plugin_languages: yes
           plugin_languages_other: yes
           plugin_languages_indepth: true
@@ -38,11 +38,11 @@ jobs:
       - name: Generate Followup Metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.followup.svg
+          filename: content/metrics.followup.svg
           token: ${{ secrets.METRICS_TOKEN }}
           output_action: commit
           committer_branch: main
           committer_message: "chore: update metrics.followup.svg"
-          base: 
+          base:
           plugin_followup: yes
           plugin_followup_sections: repositories

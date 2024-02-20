@@ -1,3 +1,5 @@
+import utils from "./utils";
+
 export async function fetchGistData(gists: Array<string>): Promise<string> {
     const list = await Promise.all(
         gists.map(async (gist) => {
@@ -14,6 +16,9 @@ export async function fetchGistData(gists: Array<string>): Promise<string> {
                 updated_at: last_updated,
                 files: files
             } = data;
+
+            const date_created = utils.formatDate(created_at);
+            const date_updated = utils.formatDate(last_updated);
 
             // Use the first line (excluding the title/header) of the first file as the description for the gist
             const description = files[Object.keys(files)[0]].content.split('\n')[2];
@@ -38,8 +43,8 @@ export async function fetchGistData(gists: Array<string>): Promise<string> {
                     <a href=${url} target="_blank" rel="noopener noreferrer">${name}</a>: ${description}
                     <ul>
                         <li>📄 Language: <b>${lang}</b></li>
-                        <li>🎨 Created: <b>${created_at}</b></li>
-                        <li>📅 Last updated: <b>${last_updated}</b></li>
+                        <li>🎨 Created: <b>${date_created}</b></li>
+                        <li>📅 Last updated: <b>${date_updated}</b></li>
                         <li>📏 Size: <b>${size} characters</b></li>
                     </ul>
                 </li>

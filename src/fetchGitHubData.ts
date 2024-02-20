@@ -1,3 +1,5 @@
+import utils from "./utils";
+
 export async function fetchGitHubData(repos: Array<string>): Promise<string> {
     const list = await Promise.all(
       repos.map(async (repo) => {
@@ -22,10 +24,12 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
           open_issues_count: issues,
         } = data;
 
+        const last_updated_str = utils.formatDate(last_updated);
+
         let summary = `
           <li>
               <a href=${url} target="_blank" rel="noopener noreferrer">${name}</a> 
-              (📄 Language: <b>${lang}</b> | 🗃️ Issues: <b>${issues}</b> | 📅 Last updated: <b>${last_updated}</b>)
+              (📄 Language: <b>${lang}</b> | 🗃️ Issues: <b>${issues}</b> | 📅 Last updated: <b>${last_updated_str}</b>)
               ${desc === null ? "" : ": " + desc}
           </li>
         `;
@@ -54,13 +58,15 @@ export async function fetchGitHubData(repos: Array<string>): Promise<string> {
           name: releases_name,
           published_at: releases_published
         } = release;
+
+        const release_date_str = utils.formatDate(releases_published);
         
         summary += `
         <ul>
             <li>
                 🏷️ Current Release${is_pre_release ? ' (pre-release)' : ''}: 
                 <a href=${releases_url} target="_blank" rel="noopener noreferrer">${releases_name}</a> 
-                (Published: <b>${releases_published}</b>)
+                (Published: <b>${release_date_str}</b>)
             </li>
         </ul>
         `;

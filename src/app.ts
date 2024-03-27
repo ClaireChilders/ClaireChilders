@@ -86,7 +86,7 @@ async function generateMarkdown() {
 
         <br /><br />
 
-        Highly detail-oriented individual with a passion for data science and computational intelligence. Excels at designing creative and impactful solutions to complex challenges. Inspired by curiosity and passion for lifelong learning to continuously expand knowledge in the field of computer science.
+        Highly detail-oriented individual with a passion for software development and data science. Excels at designing creative and impactful solutions to complex challenges. Inspired by curiosity and passion for lifelong learning to continuously expand knowledge in the field of computer science.
 
         <br /><br />
 

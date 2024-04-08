@@ -7,6 +7,7 @@ export const config = {
         "CLDC-OU/MassHandshakeMessager"
     ],
     "releasedProjectRepos": [
+        "ClaireChilders/CareerFairAttendanceClassifier",
         "CLDC-OU/SurveyGeocoder",
         "CLDC-OU/HandshakeSurveyResults",
         "ClaireChilders/CSI3370Team2Groupproject",
